@@ -1,0 +1,13 @@
+def test_product_list_is_not_empty(desks_page):
+    desks_page.open_page()
+    desks_page.check_desks_on_page()
+
+
+def test_all_products_have_titles(desks_page):
+    desks_page.open_page()
+    desks_page.check_all_titles()
+
+
+def test_sort_by_name(desks_page):
+    desks_page.open_page()
+    desks_page.select_sort_option()
