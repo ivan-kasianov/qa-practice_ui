@@ -19,17 +19,10 @@ class DesksPage(BasePage):
             desks_text.append(desk.text)
         return desks_text
 
-    def sorted_desk_titles(self, titles):
-        titles = sorted(titles)
-        return titles
-
-    def check_all_titles(self):
-        actual_titles = self.find_desks_titles()
+    def check_all_titles(self, actual_titles):
         assert actual_titles == TL.desk_titles
 
-    def select_sort_option(self):
-        titles = self.find_desks_titles()
-        titles_sort_without_click_button = self.sorted_desk_titles(titles)
+    def select_sort_by_name_a_z(self):
         dropdown_button = self.find(DL.dropdown_button_loc)
         dropdown_button.click()
         wait = WebDriverWait(self.driver, 3)
@@ -42,9 +35,8 @@ class DesksPage(BasePage):
             EC.text_to_be_present_in_element(
                 DL.dropdown_button_loc, "Name (A-Z)")
         )
-        titles_sort_after_click_button = (
-            self.find_desks_titles()
-        )
+
+    def check_titles_are_sorted(self, actual_titles, expected_titles):
         assert (
-            titles_sort_without_click_button == titles_sort_after_click_button
+            actual_titles == expected_titles
         )

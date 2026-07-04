@@ -9,3 +9,6 @@ desk_titles = [
     "Large Desk",
     "Desk Stand with Screen"
 ]
+
+expected_color_login_button = "rgba(43, 55, 55, 1)"
+expected_color_input_border = "rgba(17, 100, 102, 0.25) 0px 0px 0px 4px"

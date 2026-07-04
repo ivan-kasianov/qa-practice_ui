@@ -10,4 +10,6 @@ def test_support_number(cart_page):
 
 def test_check_button_login_background_color(cart_page):
     cart_page.open_page()
-    cart_page.check_button_color_is_correct()
+    cart_page.hover_to_button()
+    color_on_hover = cart_page.get_button_color()
+    cart_page.check_button_color_is_correct(color_on_hover)

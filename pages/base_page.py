@@ -16,6 +16,10 @@ class BasePage:
                 "Page can not be opened for this page class"
             )
 
+    def verify_element_text(self, locator, expected_text):
+        actual_text = self.find(locator).text
+        assert actual_text == expected_text
+
     def find(self, locator: tuple):
         return self.driver.find_element(*locator)
 
